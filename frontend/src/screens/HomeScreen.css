@@ -1,0 +1,49 @@
+.home-screen { display: flex; flex-direction: column; gap: 22px; }
+
+.recurring-card {
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, var(--color-accent-900), var(--color-surface) 62%);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.recurring-card-row { display: flex; align-items: center; gap: 8px; }
+.recurring-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.recurring-title { font-family: var(--font-heading); font-size: 19px; line-height: 1.2; }
+.recurring-summary { font-size: 12.5px; margin-top: 3px; }
+.recurring-price { font-family: var(--font-heading); font-size: 24px; }
+.recurring-actions { display: flex; gap: 8px; margin-top: 2px; }
+
+.home-section-heading { display: flex; align-items: baseline; margin-bottom: 10px; }
+.home-section-heading h5 { margin: 0; }
+
+.category-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.category-tile {
+  cursor: pointer; text-align: left; border: 1px solid var(--color-divider);
+  background: var(--color-surface); border-radius: var(--radius-md); padding: 10px 9px;
+  display: flex; flex-direction: column; gap: 14px; color: var(--color-text);
+}
+.category-tile:hover { border-color: var(--color-accent); }
+.category-tile span { font-size: 11.5px; line-height: 1.25; font-family: var(--font-heading); }
+
+.featured-row {
+  display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px;
+  margin: 0 -18px; padding-left: 18px; padding-right: 18px;
+  scrollbar-width: none;
+}
+.featured-row::-webkit-scrollbar { width: 0; height: 0; }
+.featured-card {
+  flex: none; width: 236px; cursor: pointer; border-radius: var(--radius-md);
+  overflow: hidden; background: var(--color-surface); box-shadow: var(--shadow-sm);
+}
+.featured-card-body { padding: 11px 12px 13px; }
+.featured-card-origin { font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.featured-card-name { font-family: var(--font-heading); font-size: 14.5px; margin-top: 4px; line-height: 1.25; }
+.featured-card-price { display: flex; align-items: baseline; gap: 6px; margin-top: 7px; font-size: 14px; font-family: var(--font-heading); }
+
+.home-delivery-note {
+  display: flex; gap: 10px; align-items: flex-start;
+  border-top: 1px solid var(--color-divider); padding-top: 16px;
+}
