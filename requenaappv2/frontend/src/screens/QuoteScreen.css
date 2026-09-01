@@ -1,0 +1,3 @@
+.quote-screen { display: flex; flex-direction: column; gap: 16px; padding-top: 4px; }
+.quote-row { display: flex; gap: 10px; }
+.quote-section-title { margin: 0 0 8px; color: var(--color-neutral-400); }

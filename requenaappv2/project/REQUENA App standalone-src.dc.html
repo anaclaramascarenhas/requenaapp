@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#101220">
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="800" fill="#101220"/>
+<rect x="470" y="150" width="260" height="500" rx="46" fill="#161826" stroke="#9184d9" stroke-width="3"/>
+<rect x="540" y="168" width="120" height="18" rx="9" fill="#101220"/>
+<circle cx="600" cy="360" r="62" fill="none" stroke="#e6c229" stroke-width="7"/>
+<path d="M612 430c34-22 74-24 96-10-26 26-66 32-96 10z" fill="#57a84b"/>
+<rect x="510" y="500" width="180" height="12" rx="6" fill="#3f424d"/>
+<rect x="510" y="530" width="120" height="12" rx="6" fill="#3f424d"/>
+<rect x="510" y="580" width="180" height="30" rx="8" fill="none" stroke="#9184d9" stroke-width="3"/>
+</svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/nocturne-aa6a875b-d002-4c14-b961-38e6bd45f455/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<script src="_ds/nocturne-aa6a875b-d002-4c14-b961-38e6bd45f455/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+body{margin:0;background:#101220}
+a{color:var(--color-accent);text-decoration:none}
+a:hover{color:var(--color-accent-400)}
+.rq-scroll::-webkit-scrollbar{width:0;height:0}
+.rq-row{scrollbar-width:none}
+.rq-row::-webkit-scrollbar{width:0;height:0}
+</style>
+</helmet>
+
+<div style="display:flex;gap:64px;align-items:flex-start;padding:56px 64px;background:#101220;min-height:100vh;font-family:var(--font-body);color:var(--color-text)">
+
+  <div style="flex:none;position:relative">
+    <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+      <div data-screen-label="App" style="height:100%;display:flex;flex-direction:column;background:var(--color-bg);font-family:var(--font-body);color:var(--color-text)">
+
+        <sc-if value="{{ isTop }}" hint-placeholder-val="{{ true }}">
+          <div style="flex:none;padding:58px 18px 12px;display:flex;align-items:center;gap:12px">
+            <img src="assets/requena-logo.png" alt="REQUENA" style="height:44px;width:auto;flex:none;filter:brightness(1.9)">
+            <div style="margin-left:auto;display:flex;gap:6px">
+              <button class="btn btn-icon btn-secondary" style="border-color:var(--color-divider)"><i class="ph ph-magnifying-glass" style="font-size:17px"></i></button>
+              <button class="btn btn-icon btn-secondary" style="border-color:var(--color-divider);position:relative"><i class="ph ph-bell" style="font-size:17px"></i><span style="position:absolute;top:7px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--color-accent)"></span></button>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isSub }}">
+          <div style="flex:none;padding:58px 14px 10px;display:flex;align-items:center;gap:10px">
+            <button class="btn btn-icon btn-secondary" onClick="{{ back }}" style="border-color:var(--color-divider)"><i class="ph ph-arrow-left" style="font-size:18px"></i></button>
+            <span style="font-family:var(--font-heading);font-weight:500;font-size:16px">{{ subTitle }}</span>
+          </div>
+        </sc-if>
+
+        <div class="rq-scroll" style="flex:1;overflow:auto;padding:0 18px 24px">
+
+          <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;flex-direction:column;gap:22px">
+              <div>
+                <h3 style="margin:0 0 2px;font-size:23px">Bom dia, {{ accountName }}</h3>
+                <p class="text-muted" style="margin:0;font-size:13px">Sua reposição de terça está pronta para sair.</p>
+              </div>
+
+              <div style="border-radius:var(--radius-lg);background:linear-gradient(150deg,var(--color-accent-900),var(--color-surface) 62%);box-shadow:var(--shadow-sm);padding:16px;display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <i class="ph-fill ph-arrows-clockwise" style="font-size:14px;color:var(--color-accent)"></i>
+                  <span style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent)">Pedido recorrente</span>
+                  <span class="tag tag-neutral" style="margin-left:auto">a cada 14 dias</span>
+                </div>
+                <div>
+                  <div style="font-family:var(--font-heading);font-size:19px;line-height:1.2">6 itens · 480 kg</div>
+                  <div class="text-muted" style="font-size:12.5px;margin-top:3px">Feijão carioca, fubá mimoso, farinha tipo 1, colorau, azeitona verde, chia</div>
+                </div>
+                <div style="display:flex;align-items:baseline;gap:8px">
+                  <span style="font-family:var(--font-heading);font-size:24px">{{ recurringTotal }}</span>
+                  <span class="text-muted" style="font-size:11.5px">preço de contrato · frete CIF</span>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:2px">
+                  <button class="btn btn-primary" onClick="{{ repeatOrder }}" style="flex:1"><i class="ph ph-arrow-counter-clockwise" style="font-size:15px"></i> Repetir pedido</button>
+                  <button class="btn btn-secondary" onClick="{{ goCart }}">Editar lista</button>
+                </div>
+              </div>
+
+              <div>
+                <div style="display:flex;align-items:baseline;margin-bottom:10px">
+                  <h5 style="margin:0;font-size:15px">Categorias</h5>
+                  <span class="text-muted" style="margin-left:auto;font-size:11.5px">6 linhas</span>
+                </div>
+                <div class="rq-row" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+                  <sc-for list="{{ cats }}" as="c" hint-placeholder-count="6">
+                    <button onClick="{{ c.open }}" style="cursor:pointer;text-align:left;border:1px solid var(--color-divider);background:var(--color-surface);border-radius:var(--radius-md);padding:10px 9px;display:flex;flex-direction:column;gap:14px;color:var(--color-text)" style-hover="border-color:var(--color-accent)">
+                      <i class="{{ c.icon }}" style="font-size:19px;color:var(--color-accent-400)"></i>
+                      <span style="font-size:11.5px;line-height:1.25;font-family:var(--font-heading)">{{ c.name }}</span>
+                    </button>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div>
+                <div style="display:flex;align-items:baseline;margin-bottom:10px">
+                  <h5 style="margin:0;font-size:15px">Safra nova</h5>
+                  <button class="btn btn-ghost" onClick="{{ goCatalog }}" style="margin-left:auto;font-size:12.5px">Ver tudo</button>
+                </div>
+                <div class="rq-row" style="display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;margin:0 -18px;padding-left:18px;padding-right:18px">
+                  <sc-for list="{{ featured }}" as="p" hint-placeholder-count="3">
+                    <div onClick="{{ p.open }}" style="flex:none;width:236px;cursor:pointer;border-radius:var(--radius-md);overflow:hidden;background:var(--color-surface);box-shadow:var(--shadow-sm)">
+                      <div style="position:relative;height:118px;background:var(--color-neutral-900)">
+                        <image-slot id="{{ p.slot }}" shape="rect" placeholder="{{ p.name }}" style="width:100%;height:118px"></image-slot>
+                      </div>
+                      <div style="padding:11px 12px 13px">
+                        <div style="font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent)">{{ p.origin }}</div>
+                        <div style="font-family:var(--font-heading);font-size:14.5px;margin-top:4px;line-height:1.25">{{ p.name }}</div>
+                        <div style="display:flex;align-items:baseline;gap:6px;margin-top:7px">
+                          <span style="font-size:14px;font-family:var(--font-heading)">{{ p.priceStr }}</span>
+                          <span class="text-muted" style="font-size:11px">{{ p.unitStr }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:10px;align-items:flex-start;border-top:1px solid var(--color-divider);padding-top:16px">
+                <i class="ph ph-truck" style="font-size:17px;color:var(--color-accent-400);flex:none;margin-top:1px"></i>
+                <div>
+                  <div style="font-size:13px;font-family:var(--font-heading)">Entrega quinta, 03/09</div>
+                  <div class="text-muted" style="font-size:11.5px">Pedidos fechados até quarta, 14h. Mínimo de 200 kg por rota.</div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isCatalog }}">
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <div class="field">
+                <div style="position:relative">
+                  <i class="ph ph-magnifying-glass" style="position:absolute;left:10px;top:10px;font-size:15px;color:var(--color-neutral-500)"></i>
+                  <input class="input" placeholder="Buscar grão, tempero, conserva…" style="padding-left:31px">
+                </div>
+              </div>
+              <div class="rq-row" style="display:flex;gap:7px;overflow-x:auto;margin:0 -18px;padding:0 18px 4px">
+                <sc-for list="{{ catChips }}" as="c" hint-placeholder-count="7">
+                  <button onClick="{{ c.open }}" class="tag" style="{{ c.style }}">{{ c.name }}</button>
+                </sc-for>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <span class="text-muted" style="font-size:11.5px">{{ countStr }}</span>
+                <button class="btn btn-ghost" style="margin-left:auto;font-size:12px"><i class="ph ph-sliders-horizontal" style="font-size:14px"></i> Filtrar</button>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <sc-for list="{{ listed }}" as="p" hint-placeholder-count="5">
+                  <div onClick="{{ p.open }}" style="cursor:pointer;display:flex;gap:12px;padding:10px;border-radius:var(--radius-md);background:var(--color-surface);box-shadow:var(--shadow-sm)" style-hover="box-shadow:var(--shadow-md)">
+                    <image-slot id="{{ p.slot }}" radius="6" placeholder="foto" style="width:76px;height:76px;flex:none"></image-slot>
+                    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:3px">
+                      <div style="font-family:var(--font-heading);font-size:14px;line-height:1.25">{{ p.name }}</div>
+                      <div class="text-muted" style="font-size:11.5px;line-height:1.3">{{ p.spec }}</div>
+                      <div style="display:flex;align-items:baseline;gap:6px;margin-top:auto">
+                        <span style="font-size:14.5px;font-family:var(--font-heading)">{{ p.priceStr }}</span>
+                        <span class="text-muted" style="font-size:11px">{{ p.unitStr }}</span>
+                      </div>
+                      <div style="font-size:10.5px;color:var(--color-accent-300)">{{ p.tierStr }}</div>
+                    </div>
+                    <button class="btn btn-icon btn-primary" onClick="{{ p.quickAdd }}" style="align-self:center;flex:none"><i class="ph ph-plus" style="font-size:16px"></i></button>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isProduct }}">
+            <div style="display:flex;flex-direction:column;gap:18px;margin:0 -18px">
+              <div style="position:relative;background:var(--color-neutral-900)">
+                <image-slot id="{{ prod.heroSlot }}" shape="rect" placeholder="Foto do produto" style="width:100%;height:224px"></image-slot>
+              </div>
+              <div style="padding:0 18px;display:flex;flex-direction:column;gap:18px">
+                <div>
+                  <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-accent)">{{ prod.catName }} · {{ prod.origin }}</div>
+                  <h3 style="margin:6px 0 6px;font-size:24px">{{ prod.name }}</h3>
+                  <p class="text-muted" style="margin:0;font-size:13px;line-height:1.5;text-wrap:pretty">{{ prod.copy }}</p>
+                </div>
+
+                <div style="display:flex;align-items:flex-end;gap:10px;border-top:1px solid var(--color-divider);padding-top:16px">
+                  <div>
+                    <div style="font-family:var(--font-heading);font-size:29px;line-height:1">{{ prod.priceStr }}</div>
+                    <div class="text-muted" style="font-size:11.5px;margin-top:5px">{{ prod.priceNote }}</div>
+                  </div>
+                  <span class="tag tag-outline" style="margin-left:auto">{{ prod.stockStr }}</span>
+                </div>
+
+                <div>
+                  <h6 style="margin:0 0 6px;color:var(--color-neutral-400)">Faixas por volume</h6>
+                  <table class="table">
+                    <tbody>
+                      <sc-for list="{{ prod.tiers }}" as="t" hint-placeholder-count="3">
+                        <tr>
+                          <td style="padding-left:0;font-size:13px">{{ t.range }}</td>
+                          <td style="text-align:right;padding-right:0;font-size:13px;color:{{ t.color }}">{{ t.price }}</td>
+                        </tr>
+                      </sc-for>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div>
+                  <h6 style="margin:0 0 8px;color:var(--color-neutral-400)">Formato</h6>
+                  <div class="seg">
+                    <sc-for list="{{ prod.formats }}" as="f" hint-placeholder-count="2">
+                      <label class="seg-opt" onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.label }}</label>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <div>
+                  <h6 style="margin:0 0 8px;color:var(--color-neutral-400)">Quantidade</h6>
+                  <div style="display:flex;flex-wrap:wrap;gap:7px">
+                    <sc-for list="{{ prod.qtyChips }}" as="q" hint-placeholder-count="4">
+                      <button onClick="{{ q.pick }}" style="{{ q.style }}">{{ q.label }}</button>
+                    </sc-for>
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:10px;align-items:flex-start;background:var(--color-surface);border-radius:var(--radius-md);padding:12px">
+                  <i class="ph ph-scales" style="font-size:17px;color:var(--color-accent-400);flex:none;margin-top:1px"></i>
+                  <div style="flex:1">
+                    <div style="font-size:12.5px;font-family:var(--font-heading)">Acima de 1 tonelada, o preço é negociado</div>
+                    <button class="btn btn-ghost" onClick="{{ goQuote }}" style="padding-left:0;font-size:12.5px;margin-top:2px">Pedir cotação <i class="ph ph-arrow-right" style="font-size:13px"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isCart }}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <sc-if value="{{ cartEmpty }}">
+                <div style="padding:40px 0;text-align:center">
+                  <i class="ph ph-basket" style="font-size:34px;color:var(--color-neutral-600)"></i>
+                  <p class="text-muted" style="margin:12px 0 14px;font-size:13px">Nenhum item no pedido.</p>
+                  <button class="btn btn-primary" onClick="{{ goCatalog }}">Abrir catálogo</button>
+                </div>
+              </sc-if>
+              <sc-for list="{{ cart }}" as="l" hint-placeholder-count="3">
+                <div style="display:flex;gap:12px;align-items:center">
+                  <image-slot id="{{ l.slot }}" radius="6" placeholder="foto" style="width:52px;height:52px;flex:none"></image-slot>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-family:var(--font-heading);font-size:13.5px;line-height:1.25">{{ l.name }}</div>
+                    <div class="text-muted" style="font-size:11.5px">{{ l.detail }}</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:6px;flex:none">
+                    <button class="btn btn-secondary" onClick="{{ l.dec }}" style="width:28px;height:28px;padding:0"><i class="ph ph-minus" style="font-size:12px"></i></button>
+                    <span style="font-size:12.5px;min-width:52px;text-align:center">{{ l.qtyStr }}</span>
+                    <button class="btn btn-secondary" onClick="{{ l.inc }}" style="width:28px;height:28px;padding:0"><i class="ph ph-plus" style="font-size:12px"></i></button>
+                  </div>
+                  <span style="font-size:13px;font-family:var(--font-heading);min-width:72px;text-align:right">{{ l.lineStr }}</span>
+                </div>
+              </sc-for>
+
+              <sc-if value="{{ cartFull }}" hint-placeholder-val="{{ true }}">
+                <div style="display:flex;flex-direction:column;gap:18px">
+                  <div style="border-top:1px solid var(--color-divider);padding-top:16px">
+                    <h6 style="margin:0 0 10px;color:var(--color-neutral-400)">Entrega</h6>
+                    <div style="display:flex;gap:10px;align-items:flex-start">
+                      <i class="ph ph-map-pin" style="font-size:16px;color:var(--color-accent-400);margin-top:2px"></i>
+                      <div style="flex:1">
+                        <div style="font-size:13px">Padaria Aurora · Depósito</div>
+                        <div class="text-muted" style="font-size:11.5px">R. Cel. Bento Pires 412, Piracicaba SP</div>
+                      </div>
+                      <button class="btn btn-ghost" style="font-size:12px">Trocar</button>
+                    </div>
+                    <div style="display:flex;gap:10px;align-items:center;margin-top:12px">
+                      <i class="ph ph-calendar-blank" style="font-size:16px;color:var(--color-accent-400)"></i>
+                      <div style="font-size:13px">Quinta, 03/09 · janela 7h–12h</div>
+                    </div>
+                  </div>
+
+                  <div style="border-top:1px solid var(--color-divider);padding-top:16px">
+                    <h6 style="margin:0 0 10px;color:var(--color-neutral-400)">Pagamento</h6>
+                    <div style="display:flex;flex-direction:column;gap:8px">
+                      <sc-for list="{{ payments }}" as="pay" hint-placeholder-count="3">
+                        <button onClick="{{ pay.pick }}" style="{{ pay.style }}">
+                          <span style="font-size:13px;font-family:var(--font-heading)">{{ pay.label }}</span>
+                          <span class="text-muted" style="font-size:11.5px;margin-left:auto">{{ pay.note }}</span>
+                        </button>
+                      </sc-for>
+                    </div>
+                  </div>
+
+                  <div style="border-top:1px solid var(--color-divider);padding-top:16px;display:flex;flex-direction:column;gap:7px">
+                    <div style="display:flex;font-size:12.5px"><span class="text-muted">Produtos</span><span style="margin-left:auto">{{ subtotalStr }}</span></div>
+                    <div style="display:flex;font-size:12.5px"><span class="text-muted">Frete CIF</span><span style="margin-left:auto">incluso</span></div>
+                    <div style="display:flex;font-size:12.5px;color:var(--color-accent-300)"><span>{{ discountLabel }}</span><span style="margin-left:auto">{{ discountStr }}</span></div>
+                  </div>
+
+                  <div class="field">
+                    <label>Observação para a expedição</label>
+                    <textarea class="input" style="min-height:64px" placeholder="Ex.: entregar pela rampa dos fundos"></textarea>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isQuote }}">
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <p class="text-muted" style="margin:0;font-size:13px;line-height:1.5">Volumes acima de 1 t saem da tabela e passam pelo seu representante. Diga o que precisa e para quando.</p>
+              <div class="field"><label>Produto</label><input class="input" value="Grão-de-bico graúdo 8–9 mm"></div>
+              <div style="display:flex;gap:10px">
+                <div class="field" style="flex:1"><label>Volume</label><input class="input" value="2.400 kg"></div>
+                <div class="field" style="flex:1"><label>Entrega até</label><input class="input" value="12/09/2026"></div>
+              </div>
+              <div>
+                <h6 style="margin:0 0 8px;color:var(--color-neutral-400)">Recorrência</h6>
+                <div class="seg">
+                  <sc-for list="{{ recurrence }}" as="r" hint-placeholder-count="3">
+                    <label class="seg-opt" onClick="{{ r.pick }}" style="{{ r.style }}">{{ r.label }}</label>
+                  </sc-for>
+                </div>
+              </div>
+              <div class="field"><label>Observação</label><textarea class="input" placeholder="Calibre, embalagem, condição de pagamento…"></textarea></div>
+              <button class="btn btn-primary btn-block" onClick="{{ sendQuote }}">Enviar cotação</button>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isDone }}">
+            <div style="padding:56px 4px 0;display:flex;flex-direction:column;align-items:flex-start;gap:14px">
+              <i class="ph-fill ph-check-circle" style="font-size:44px;color:var(--color-accent)"></i>
+              <h3 style="margin:0;font-size:26px">{{ doneTitle }}</h3>
+              <p class="text-muted" style="margin:0;font-size:13.5px;line-height:1.55">{{ doneBody }}</p>
+              <div style="width:100%;background:var(--color-surface);border-radius:var(--radius-md);padding:13px;display:flex;gap:11px;align-items:center;margin-top:6px">
+                <div style="width:38px;height:38px;border-radius:50%;background:var(--color-accent-800);display:flex;align-items:center;justify-content:center;flex:none"><i class="ph ph-user" style="font-size:17px;color:var(--color-accent-100)"></i></div>
+                <div style="flex:1">
+                  <div style="font-size:13px;font-family:var(--font-heading)">Marcelo Ferrão</div>
+                  <div class="text-muted" style="font-size:11.5px">Seu representante REQUENA</div>
+                </div>
+                <button class="btn btn-icon btn-primary"><i class="ph ph-phone" style="font-size:16px"></i></button>
+              </div>
+              <button class="btn btn-secondary btn-block" onClick="{{ goHome }}" style="margin-top:8px">Voltar ao início</button>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isAccount }}">
+            <div style="display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;gap:12px;align-items:center">
+                <div style="width:46px;height:46px;border-radius:var(--radius-md);background:var(--color-accent-800);display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:17px;color:var(--color-accent-100);flex:none">PA</div>
+                <div>
+                  <div style="font-family:var(--font-heading);font-size:17px">{{ accountName }}</div>
+                  <div class="text-muted" style="font-size:11.5px">CNPJ 12.345.678/0001-90 · Cliente desde 2019</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:8px">
+                <div style="flex:1;background:var(--color-surface);border-radius:var(--radius-md);padding:11px">
+                  <div class="text-muted" style="font-size:10.5px;text-transform:uppercase;letter-spacing:.08em">Tabela</div>
+                  <div style="font-family:var(--font-heading);font-size:15px;margin-top:3px">Contrato B2</div>
+                </div>
+                <div style="flex:1;background:var(--color-surface);border-radius:var(--radius-md);padding:11px">
+                  <div class="text-muted" style="font-size:10.5px;text-transform:uppercase;letter-spacing:.08em">Limite</div>
+                  <div style="font-family:var(--font-heading);font-size:15px;margin-top:3px">R$ 40.000</div>
+                </div>
+              </div>
+              <div style="display:flex;flex-direction:column">
+                <sc-for list="{{ accountRows }}" as="r" hint-placeholder-count="6">
+                  <button style="cursor:pointer;display:flex;align-items:center;gap:12px;padding:13px 2px;background:transparent;border:0;border-bottom:1px solid var(--color-divider);color:var(--color-text);text-align:left" style-hover="background:color-mix(in srgb, var(--color-text) 5%, transparent)">
+                    <i class="{{ r.icon }}" style="font-size:17px;color:var(--color-accent-400);flex:none"></i>
+                    <span style="flex:1;font-size:13.5px">{{ r.label }}</span>
+                    <span class="text-muted" style="font-size:11.5px">{{ r.value }}</span>
+                    <i class="ph ph-caret-right" style="font-size:13px;color:var(--color-neutral-600)"></i>
+                  </button>
+                </sc-for>
+              </div>
+              <button class="btn btn-secondary btn-block">Sair da conta</button>
+            </div>
+          </sc-if>
+
+        </div>
+
+        <sc-if value="{{ isProduct }}">
+          <div style="flex:none;padding:12px 18px 40px;background:var(--color-surface);box-shadow:0 -12px 28px rgba(0,0,0,.45);display:flex;align-items:center;gap:12px">
+            <div style="flex:none">
+              <div class="text-muted" style="font-size:10.5px">{{ prod.qtyLabel }}</div>
+              <div style="font-family:var(--font-heading);font-size:19px;line-height:1.15">{{ prod.lineTotal }}</div>
+            </div>
+            <button class="btn btn-primary" onClick="{{ addToOrder }}" style="flex:1;min-height:42px"><i class="ph ph-plus" style="font-size:15px"></i> Adicionar ao pedido</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isCart }}">
+          <sc-if value="{{ cartFull }}" hint-placeholder-val="{{ true }}">
+            <div style="flex:none;padding:12px 18px 40px;background:var(--color-surface);box-shadow:0 -12px 28px rgba(0,0,0,.45);display:flex;align-items:center;gap:12px">
+              <div style="flex:none">
+                <div class="text-muted" style="font-size:10.5px">Total do pedido</div>
+                <div style="font-family:var(--font-heading);font-size:20px;line-height:1.15">{{ totalStr }}</div>
+              </div>
+              <button class="btn btn-primary" onClick="{{ sendOrder }}" style="flex:1;min-height:42px">Enviar pedido</button>
+            </div>
+          </sc-if>
+        </sc-if>
+
+        <sc-if value="{{ showTabs }}" hint-placeholder-val="{{ true }}">
+          <div style="flex:none;position:relative;padding:9px 10px 30px;background:color-mix(in srgb, var(--color-surface) 92%, transparent);border-top:1px solid var(--color-divider);display:flex;align-items:flex-start">
+            <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+              <button onClick="{{ t.open }}" style="{{ t.style }}">
+                <i class="{{ t.icon }}" style="font-size:20px;position:relative"></i>
+                <span style="font-size:9.5px;letter-spacing:.02em">{{ t.label }}</span>
+                <sc-if value="{{ t.badge }}">
+                  <span style="position:absolute;top:2px;right:16px;min-width:15px;height:15px;border-radius:9px;background:var(--color-accent);color:var(--color-bg);font-size:9.5px;display:flex;align-items:center;justify-content:center;padding:0 4px">{{ t.badge }}</span>
+                </sc-if>
+              </button>
+            </sc-for>
+            <button onClick="{{ goQuote }}" title="Cotação" style="position:absolute;left:50%;bottom:44px;transform:translateX(-50%);width:52px;height:52px;border-radius:50%;background:var(--color-bg);border:1px solid var(--color-accent);color:var(--color-accent);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--color-bg), 0 8px 22px rgba(0,0,0,.5)" style-hover="background:var(--color-accent-900)">
+              <i class="ph ph-scales" style="font-size:21px"></i>
+            </button>
+          </div>
+        </sc-if>
+
+      </div>
+    </x-import>
+  </div>
+
+  <div style="flex:1;max-width:440px;display:flex;flex-direction:column;gap:26px;padding-top:6px">
+    <div>
+      <div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-accent)">REQUENA · app do comprador</div>
+      <h2 style="margin:8px 0 10px;font-size:30px">Pedido de atacado em três toques</h2>
+      <p class="text-muted" style="margin:0;font-size:14px;line-height:1.6;text-wrap:pretty">Protótipo navegável para o comprador B2B — mercados, padarias e restaurantes. Clique em tudo: categorias, ficha do produto, quantidade, carrinho, cotação e conta.</p>
+    </div>
+
+    <div>
+      <h6 style="margin:0 0 10px;color:var(--color-neutral-400)">Premissas que assumi</h6>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;line-height:1.5">
+        <div><strong style="font-weight:500">Preço só logado.</strong> <span class="text-muted">Todo valor visível é preço de contrato do cliente; a tabela por volume aparece na ficha do produto.</span></div>
+        <div><strong style="font-weight:500">Granel e embalagem fechada.</strong> <span class="text-muted">O produto tem um seletor de formato (kg a granel / saco fechado) e o preço acompanha.</span></div>
+        <div><strong style="font-weight:500">Recompra é a tela inicial.</strong> <span class="text-muted">Comprador de atacado repete pedido; a home abre no pedido recorrente, não na vitrine.</span></div>
+        <div><strong style="font-weight:500">Cotação é ação primária.</strong> <span class="text-muted">Acima de 1 t o preço é negociado, então a cotação ganhou o botão central da barra, fora das abas.</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h6 style="margin:0 0 10px;color:var(--color-neutral-400)">Sistema visual</h6>
+      <p class="text-muted" style="margin:0;font-size:13px;line-height:1.6">Nocturne: fundo azul-grafite, Inter 500 nos títulos, raio 8px, acento blurple usado como linha e contorno — nunca preenchimento. Ações primárias são contornadas. As fotos entram por <em>lighten</em>, então produto sobre fundo escuro se integra à tela. Ícones Phosphor.</p>
+    </div>
+
+    <div>
+      <h6 style="margin:0 0 10px;color:var(--color-neutral-400)">Fotos</h6>
+      <p class="text-muted" style="margin:0;font-size:13px;line-height:1.6">Todos os espaços de imagem são vazios de propósito — arraste fotos de produto sobre eles e ficam salvas. Não gero imagens; se quiser, mando a lista de fotos que o app precisa.</p>
+    </div>
+
+    <div>
+      <h6 style="margin:0 0 10px;color:var(--color-neutral-400)">Próximos passos</h6>
+      <p class="text-muted" style="margin:0;font-size:13px;line-height:1.6">Posso desenhar: busca com filtros por calibre e safra, lista de pedidos com rastreio, chat com o representante, e a variante do app para o representante tirar pedido em campo.</p>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accountName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Padaria Aurora&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showPrices&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Regras&quot;},&quot;showFab&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Regras&quot;}}">
+const CATS = [
+  {id:'graos', name:'Grãos', icon:'ph ph-grains'},
+  {id:'sementes', name:'Sementes', icon:'ph ph-leaf'},
+  {id:'farinaceos', name:'Farináceos', icon:'ph ph-bread'},
+  {id:'oleaginosas', name:'Oleaginosas', icon:'ph ph-tree'},
+  {id:'temperos', name:'Temperos', icon:'ph ph-pepper'},
+  {id:'conservas', name:'Conservas', icon:'ph ph-jar'},
+];
+
+const P = [
+  {id:'feijao', cat:'graos', name:'Feijão carioca tipo 1', spec:'Safra nova · peneira 11 · sc 30 kg', origin:'Paraná', price:7.40, tier:{q:500, p:6.95}, stock:'18 t em estoque', sack:30,
+   copy:'Colhido em fevereiro no norte do Paraná e beneficiado na semana do embarque. Grão uniforme, casca fina, cozimento curto.'},
+  {id:'graodebico', cat:'graos', name:'Grão-de-bico graúdo 8–9 mm', spec:'Calibre 8–9 mm · sc 25 kg', origin:'Argentina', price:12.80, tier:{q:300, p:11.90}, stock:'6 t em estoque', sack:25,
+   copy:'Calibre graúdo, o que os clientes de homus e salada pedem. Umidade controlada, sem quebra visível no lote.'},
+  {id:'arroz', cat:'graos', name:'Arroz agulhinha tipo 1', spec:'Longo fino · fardo 30 kg', origin:'Rio Grande do Sul', price:5.60, tier:{q:1000, p:5.15}, stock:'32 t em estoque', sack:30},
+  {id:'lentilha', cat:'graos', name:'Lentilha canadense', spec:'Graúda · sc 25 kg', origin:'Canadá', price:14.20, tier:{q:250, p:13.40}, stock:'4 t em estoque', sack:25},
+  {id:'girassol', cat:'sementes', name:'Semente de girassol sem casca', spec:'Grau alimentar · sc 20 kg', origin:'Minas Gerais', price:18.90, tier:{q:200, p:17.60}, stock:'2,4 t em estoque', sack:20},
+  {id:'chia', cat:'sementes', name:'Chia preta', spec:'Peneirada · sc 10 kg', origin:'Paraguai', price:22.50, tier:{q:100, p:20.80}, stock:'900 kg em estoque', sack:10},
+  {id:'linhaca', cat:'sementes', name:'Linhaça dourada', spec:'Inteira · sc 25 kg', origin:'Argentina', price:11.30, tier:{q:250, p:10.60}, stock:'3,1 t em estoque', sack:25},
+  {id:'farinha', cat:'farinaceos', name:'Farinha de trigo tipo 1', spec:'W 220 · sc 25 kg', origin:'Paraná', price:4.10, tier:{q:1000, p:3.78}, stock:'40 t em estoque', sack:25},
+  {id:'fuba', cat:'farinaceos', name:'Fubá mimoso', spec:'Moagem fina · sc 25 kg', origin:'Goiás', price:3.45, tier:{q:750, p:3.18}, stock:'22 t em estoque', sack:25},
+  {id:'mandioca', cat:'farinaceos', name:'Farinha de mandioca torrada', spec:'Fina · sc 25 kg', origin:'Pará', price:6.20, tier:{q:400, p:5.80}, stock:'9 t em estoque', sack:25},
+  {id:'caju', cat:'oleaginosas', name:'Castanha de caju W2', spec:'Inteira clara · cx 10 kg', origin:'Ceará', price:78.00, tier:{q:100, p:73.50}, stock:'640 kg em estoque', sack:10},
+  {id:'amendoim', cat:'oleaginosas', name:'Amendoim tipo 1 sem pele', spec:'Runner · sc 25 kg', origin:'São Paulo', price:13.60, tier:{q:300, p:12.75}, stock:'5,2 t em estoque', sack:25},
+  {id:'paprica', cat:'temperos', name:'Páprica defumada', spec:'Moída · sc 10 kg', origin:'Espanha', price:41.00, tier:{q:60, p:38.20}, stock:'380 kg em estoque', sack:10},
+  {id:'colorau', cat:'temperos', name:'Colorau', spec:'Fino · sc 20 kg', origin:'Bahia', price:9.80, tier:{q:200, p:9.05}, stock:'1,8 t em estoque', sack:20},
+  {id:'cominho', cat:'temperos', name:'Cominho em pó', spec:'Moído · sc 10 kg', origin:'Síria', price:36.50, tier:{q:80, p:34.00}, stock:'420 kg em estoque', sack:10},
+  {id:'palmito', cat:'conservas', name:'Palmito pupunha em conserva', spec:'Tolete · vidro 500 g · cx 12', origin:'Espírito Santo', price:19.40, tier:{q:40, p:18.10}, stock:'210 cx em estoque', sack:6, unit:'un'},
+  {id:'azeitona', cat:'conservas', name:'Azeitona verde sem caroço', spec:'Balde 2 kg · cx 6', origin:'Peru', price:27.90, tier:{q:60, p:25.90}, stock:'150 cx em estoque', sack:12, unit:'un'},
+];
+
+const money = v => 'R$ ' + v.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d)(?=,))/g, '.');
+const kg = v => v.toLocaleString('pt-BR') + ' kg';
+
+class Component extends DCLogic {
+  state = {
+    screen: 'home', cat: 'todos', pid: 'graodebico', fmt: 0, qty: 1,
+    pay: 1, rec: 1,
+    cart: [
+      {id:'feijao', qty:180}, {id:'fuba', qty:150}, {id:'colorau', qty:40},
+    ],
+    doneKind: 'order',
+  };
+
+  go = (screen, extra) => this.setState(Object.assign({screen}, extra || {}));
+
+  prodOf(id) { return P.find(p => p.id === id) || P[0]; }
+  priceOf(p, qty) { return qty >= p.tier.q ? p.tier.p : p.price; }
+  visible() { return this.state.cat === 'todos' ? P : P.filter(p => p.cat === this.state.cat); }
+
+  addTo(id, qty) {
+    this.setState(s => {
+      const cart = s.cart.slice();
+      const i = cart.findIndex(l => l.id === id);
+      if (i >= 0) cart[i] = {id, qty: cart[i].qty + qty}; else cart.push({id, qty});
+      return {cart, screen: 'cart'};
+    });
+  }
+
+  bump(id, d) {
+    this.setState(s => {
+      const p = this.prodOf(id), step = p.sack;
+      const cart = s.cart.map(l => l.id === id ? {id, qty: Math.max(0, l.qty + d * step)} : l).filter(l => l.qty > 0);
+      return {cart};
+    });
+  }
+
+  chipStyle(on) {
+    return 'cursor:pointer;flex:none;padding:5px 12px;border-radius:6px;font-size:12px;font-family:var(--font-heading);' +
+      (on ? 'border:1px solid var(--color-accent);color:var(--color-accent);background:color-mix(in srgb, var(--color-accent) 12%, transparent);'
+          : 'border:1px solid var(--color-divider);color:var(--color-text);background:transparent;');
+  }
+
+  renderVals() {
+    const s = this.state;
+    const prices = this.props.showPrices !== false;
+    const accountName = this.props.accountName || 'Padaria Aurora';
+    const sc = s.screen;
+    const p = this.prodOf(s.pid);
+    const unit = p.unit === 'un' ? '/ cx' : '/ kg';
+
+    const decorate = (x) => ({
+      id: x.id, name: x.name, spec: x.spec, origin: x.origin,
+      slot: 'rq-' + x.id, unitStr: prices ? unit : '',
+      priceStr: prices ? money(x.price) : 'Preço de contrato',
+      tierStr: prices ? '≥ ' + x.tier.q + (x.unit === 'un' ? ' cx' : ' kg') + ' · ' + money(x.tier.p) : 'Entre para ver faixas',
+      open: () => this.go('product', {pid: x.id, qty: 1, fmt: 0}),
+      quickAdd: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.addTo(x.id, x.sack); },
+    });
+
+    const qtyMults = [1, 2, 5, 10];
+    const qtyKg = qtyMults[s.qty] !== undefined ? p.sack * qtyMults[s.qty] : p.sack;
+    const lineQty = p.sack * (qtyMults[s.qty] || 1);
+    const linePrice = this.priceOf(p, lineQty) * lineQty;
+
+    const cart = s.cart.map(l => {
+      const x = this.prodOf(l.id);
+      const u = this.priceOf(x, l.qty);
+      return {
+        name: x.name, slot: 'rq-' + x.id,
+        detail: (prices ? money(u) + ' ' + (x.unit === 'un' ? '/ cx' : '/ kg') : 'contrato') + ' · ' + x.origin,
+        qtyStr: x.unit === 'un' ? l.qty + ' cx' : kg(l.qty),
+        lineStr: prices ? money(u * l.qty) : '—',
+        inc: () => this.bump(l.id, 1), dec: () => this.bump(l.id, -1),
+      };
+    });
+    const subtotal = s.cart.reduce((a, l) => { const x = this.prodOf(l.id); return a + this.priceOf(x, l.qty) * l.qty; }, 0);
+    const payments = [
+      {label:'Boleto 28 dias', note:'sem acréscimo', d:0},
+      {label:'Boleto 14 dias', note:'−1%', d:0.01},
+      {label:'Pix na coleta', note:'−2%', d:0.02},
+    ];
+    const disc = subtotal * payments[s.pay].d;
+
+    const rowStyle = (on) => 'cursor:pointer;display:flex;align-items:center;gap:10px;width:100%;padding:11px 12px;border-radius:var(--radius-md);text-align:left;color:var(--color-text);' +
+      (on ? 'border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 10%, transparent);'
+          : 'border:1px solid var(--color-divider);background:transparent;');
+
+    const tabs = [
+      {id:'home', label:'Início', icon:'ph ph-house'},
+      {id:'catalog', label:'Catálogo', icon:'ph ph-squares-four'},
+      {id:'cart', label:'Pedido', icon:'ph ph-receipt', badge: s.cart.length ? String(s.cart.length) : ''},
+      {id:'account', label:'Conta', icon:'ph ph-user-circle'},
+    ].map((t, i) => ({
+      label: t.label, badge: t.badge || '',
+      icon: sc === t.id ? t.icon.replace('ph ph-', 'ph-fill ph-') : t.icon,
+      open: () => this.go(t.id),
+      style: 'position:relative;flex:1;background:transparent;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0;' +
+        (i === 1 ? 'margin-right:32px;' : i === 2 ? 'margin-left:32px;' : '') +
+        'color:' + (sc === t.id ? 'var(--color-accent)' : 'var(--color-neutral-500)') + ';',
+    }));
+
+    const subTitles = {catalog:'Catálogo', product:'', cart:'Seu pedido', quote:'Pedir cotação', done:''};
+
+    return {
+      accountName, tabs,
+      isHome: sc === 'home', isCatalog: sc === 'catalog', isProduct: sc === 'product',
+      isCart: sc === 'cart', isQuote: sc === 'quote', isDone: sc === 'done', isAccount: sc === 'account',
+      isTop: sc === 'home' || sc === 'account',
+      isSub: sc === 'catalog' || sc === 'product' || sc === 'cart' || sc === 'quote',
+      subTitle: subTitles[sc] || '',
+      showTabs: this.props.showFab === false ? false : (sc === 'home' || sc === 'catalog' || sc === 'account'),
+      back: () => this.go(sc === 'product' ? 'catalog' : 'home'),
+      goHome: () => this.go('home'), goCatalog: () => this.go('catalog'),
+      goCart: () => this.go('cart'), goQuote: () => this.go('quote'),
+
+      recurringTotal: prices ? money(2847.60) : 'Preço de contrato',
+      repeatOrder: () => this.go('cart'),
+      cats: CATS.map(c => ({name: c.name, icon: c.icon, open: () => this.go('catalog', {cat: c.id})})),
+      featured: [P[1], P[5], P[10]].map(decorate),
+
+      catChips: [{id:'todos', name:'Todos'}].concat(CATS).map(c => ({
+        name: c.name, style: this.chipStyle(s.cat === c.id), open: () => this.setState({cat: c.id}),
+      })),
+      countStr: this.visible().length + ' produtos · preço do contrato B2',
+      listed: this.visible().map(decorate),
+
+      prod: {
+        name: p.name, origin: p.origin, copy: p.copy || p.spec + '. Lote conferido na entrada e liberado pelo controle de qualidade da REQUENA.',
+        catName: (CATS.find(c => c.id === p.cat) || {}).name,
+        heroSlot: 'rq-hero-' + p.id,
+        priceStr: prices ? money(p.price) + ' ' + unit : 'Preço de contrato',
+        priceNote: prices ? 'Seu preço de contrato B2 · sem frete adicional' : 'Entre com seu CNPJ para ver preços',
+        stockStr: p.stock,
+        tiers: [
+          {range: 'até ' + (p.tier.q - 1) + (p.unit === 'un' ? ' cx' : ' kg'), price: prices ? money(p.price) : '—', color: 'var(--color-text)'},
+          {range: 'a partir de ' + p.tier.q + (p.unit === 'un' ? ' cx' : ' kg'), price: prices ? money(p.tier.p) : '—', color: 'var(--color-accent-300)'},
+          {range: 'acima de 1 t', price: 'sob cotação', color: 'var(--color-accent-300)'},
+        ],
+        formats: [
+          {label: p.unit === 'un' ? 'Caixa fechada' : 'Saco ' + p.sack + ' kg'},
+          {label: p.unit === 'un' ? 'Unidade' : 'Granel'},
+        ].map((f, i) => ({
+          label: f.label, pick: () => this.setState({fmt: i}),
+          style: s.fmt === i ? 'color:var(--color-accent);box-shadow:inset 0 0 0 1px var(--color-accent)' : '',
+        })),
+        qtyChips: qtyMults.map((m, i) => ({
+          label: p.unit === 'un' ? (p.sack * m) + ' cx' : kg(p.sack * m),
+          pick: () => this.setState({qty: i}),
+          style: this.chipStyle(s.qty === i),
+        })),
+        qtyLabel: (p.unit === 'un' ? lineQty + ' cx' : kg(lineQty)) + ' · ' + (prices ? money(this.priceOf(p, lineQty)) + ' ' + unit : 'contrato'),
+        lineTotal: prices ? money(linePrice) : '—',
+      },
+      addToOrder: () => this.addTo(p.id, lineQty),
+
+      cart, cartEmpty: s.cart.length === 0, cartFull: s.cart.length > 0,
+      payments: payments.map((x, i) => ({label: x.label, note: x.note, pick: () => this.setState({pay: i}), style: rowStyle(s.pay === i)})),
+      subtotalStr: prices ? money(subtotal) : '—',
+      discountLabel: payments[s.pay].d ? 'Desconto ' + payments[s.pay].note.replace('−', '') : 'Sem desconto no prazo',
+      discountStr: payments[s.pay].d ? '− ' + money(disc) : '—',
+      totalStr: prices ? money(subtotal - disc) : 'sob contrato',
+      sendOrder: () => this.go('done', {doneKind: 'order'}),
+
+      recurrence: ['Uma vez', 'Mensal', 'Quinzenal'].map((l, i) => ({
+        label: l, pick: () => this.setState({rec: i}),
+        style: s.rec === i ? 'color:var(--color-accent);box-shadow:inset 0 0 0 1px var(--color-accent)' : '',
+      })),
+      sendQuote: () => this.go('done', {doneKind: 'quote'}),
+
+      doneTitle: s.doneKind === 'quote' ? 'Cotação enviada' : 'Pedido enviado',
+      doneBody: s.doneKind === 'quote'
+        ? 'Marcelo responde em até 4 horas úteis com preço fechado e prazo de embarque. Você recebe no app e por e-mail.'
+        : 'Pedido 24.881 confirmado. A expedição fecha a carga na quarta às 14h e a entrega sai quinta, 03/09, na janela das 7h.',
+
+      accountRows: [
+        {icon:'ph ph-file-text', label:'Contrato e tabela de preços', value:'B2'},
+        {icon:'ph ph-map-pin', label:'Endereços de entrega', value:'2'},
+        {icon:'ph ph-receipt', label:'Faturas e boletos', value:'1 aberta'},
+        {icon:'ph ph-arrows-clockwise', label:'Pedidos recorrentes', value:'1 ativo'},
+        {icon:'ph ph-users-three', label:'Usuários da conta', value:'3'},
+        {icon:'ph ph-user', label:'Marcelo Ferrão · representante', value:''},
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>
